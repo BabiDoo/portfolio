@@ -207,23 +207,23 @@ nav li a:hover:after {
 }
 
 nav li:nth-of-type(1) {
-    background-color: #29363B
+    background-color: #808bc5
 }
 
 nav li:nth-of-type(2) {
-    background-color: #EA495F
+    background-color: #c63f3e
 }
 
 nav li:nth-of-type(3) {
-    background-color: #F4837D
+    background-color: #eaa7c7
 }
 
 nav li:nth-of-type(4) {
-    background-color: #c05e14ff
+    background-color: #ed773c
 }
 
 nav li:nth-of-type(5) {
-    background-color: #344634ff
+    background-color: #245e55
 }
 
 .slide-in-nav-item {
@@ -848,7 +848,7 @@ Contact Page Specific Styles (Added/Modified)
 }
 
 .submit-btn:hover {
-    background-color: #d13d52; /* Darker shade on hover */
+    background-color: #c63f3e; /* Darker shade on hover */
 }
 
 .social-links{
