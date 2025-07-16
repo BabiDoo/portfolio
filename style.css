@@ -604,15 +604,18 @@ Skills Grid Layout
     align-items: center;
     width: 100%;
     max-width: 1000px;
-    height: auto;
+    height: 70%;
     box-sizing: border-box;
     padding: 4rem 2rem;
+    margin-top: 6rem;
+    scale: 100%;
+
 }
 
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* DUAS colunas fixas */
+    grid-template-columns: repeat(3, 1fr); /* DUAS colunas fixas */
     gap: 2rem;
     width: 100%;
 }
@@ -880,15 +883,17 @@ Works Grid Layout (Novas Regras)
     flex-direction: row;
     justify-content: space-around;
     align-items:center;
-    gap:26px;
-    padding: 2rem
+    gap:8px;
+    padding: 1rem
 
 }
 
 .pulse-container > p{
     font-family: 'Open Sans', sans-serif;
     color: #FFF;
-    scale: 140%;
+    scale: 120%;
+    font-weight: bold;
+
 
 }
 
@@ -905,9 +910,11 @@ body {
 	text-align: center;
 }
 
-/* Button resets and style */
-button {
-	scale: 50%;
+
+/* Initiate Auto-Pulse animations */
+button.pulse-button {
+	animation: borderPulse 1000ms infinite ease-out, colorShift 10000ms infinite ease-in;
+    scale: 50%;
     margin: 15px auto;
 	font-family: "Montserrat";
 	font-size: 20px;
@@ -917,11 +924,6 @@ button {
 	padding: 15px 20px;
 	border: 0px solid #000;		
 	color: #2bff2b
-	}
-
-/* Initiate Auto-Pulse animations */
-button.pulse-button {
-	animation: borderPulse 1000ms infinite ease-out, colorShift 10000ms infinite ease-in;
 }
 
 /* Initiate color change for pulse-on-hover */
