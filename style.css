@@ -981,7 +981,7 @@ Contact Page Specific Styles (Added/Modified)
 }
 
 .social-links a:hover {
-    color: #EA495F; /* Accent color on hover */
+    color: #931f1f; /* Accent color on hover */
     transform: translateY(-3px); /* Slight lift on hover */
 }
 
