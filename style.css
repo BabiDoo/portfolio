@@ -656,7 +656,7 @@ Works Grid Layout (Novas Regras)
 
 .work-card a {
     display: inline-block;
-    background-color: #EA495F; /* Cor de destaque similar à navegação */
+    background-color: #a31f1f; /* Cor de destaque similar à navegação */
     color: #ffffff;
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
@@ -669,7 +669,7 @@ Works Grid Layout (Novas Regras)
 }
 
 .work-card a:hover {
-    background-color: #d13d52; /* Um tom mais escuro no hover */
+    background-color: rgb(168, 40, 59)f1fd52; /* Um tom mais escuro no hover */
 }
 
 
@@ -820,7 +820,7 @@ Contact Page Specific Styles (Added/Modified)
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
 .contact-form textarea:focus {
-    border-color: #EA495F; /* Highlight on focus */
+    border-color: #a31f1f; /* Highlight on focus */
     background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque */
 }
 
@@ -831,7 +831,7 @@ Contact Page Specific Styles (Added/Modified)
 
 .submit-btn {
     display: inline-block;
-    background-color: #EA495F; /* Accent color */
+    background-color: #a31f1f; /* Accent color */
     color: #ffffff;
     padding: 1rem 2rem;
     border-radius: 5px;
