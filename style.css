@@ -45,7 +45,10 @@ body {
 
 /* Move titles to the top-left corner on home and about pages */
 .home.about .page-title,
-section[class="home"] .page-title { /* Changed to section[class="home"] to be more specific */
+.home.skills .page-title, /* Added skills */
+.home.works .page-title, /* Added works */
+.home.contact .page-title,
+section[class="home"] .page-title{ /* Changed to section[class="home"] to be more specific */
     position: absolute;
     top: 3.2rem;
     left: 5rem;
@@ -927,8 +930,8 @@ button.pulse-button-hover {
 }
 
 /* Continue animation and add shine on hover */
-button:hover,
-button:focus {
+button.pulse-button:hover,
+button.pulse-button:focus {
 	animation: borderPulse 1000ms infinite ease-out, colorShift 10000ms infinite ease-in, hoverShine 200ms;
 }
 
