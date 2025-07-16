@@ -207,23 +207,23 @@ nav li a:hover:after {
 }
 
 nav li:nth-of-type(1) {
-    background-color: #808bc5
+    background-color: #6b74a4
 }
 
 nav li:nth-of-type(2) {
-    background-color: #c63f3e
+    background-color: #a31f1f
 }
 
 nav li:nth-of-type(3) {
-    background-color: #eaa7c7
+    background-color: #9f577a
 }
 
 nav li:nth-of-type(4) {
-    background-color: #ed773c
+    background-color: #d9964f
 }
 
 nav li:nth-of-type(5) {
-    background-color: #245e55
+    background-color: #3a746b
 }
 
 .slide-in-nav-item {
