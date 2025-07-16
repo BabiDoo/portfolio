@@ -33,6 +33,16 @@ body {
     text-align: center;
 }
 
+.page-title .page-subtitle-text {
+    display: block;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 1.25rem;
+    text-transform: none;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
 /* Move titles to the top-left corner on home and about pages */
 .home.about .page-title,
 section[class="home"] .page-title { /* Changed to section[class="home"] to be more specific */
