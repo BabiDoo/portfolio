@@ -703,7 +703,8 @@ Skills Grid Layout
 
 
 .skill-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px); /* Efeito de elevação no hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra mais intensa no hover */
     /* Aumenta um pouco o card ao passar o mouse */
 }
 
@@ -782,7 +783,7 @@ Works Grid Layout
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 0px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1);
     color: white;
     padding: 1.5rem; /* Ajustado padding para o conteúdo do card de projeto */
@@ -1020,7 +1021,8 @@ Contact Page Specific Styles (Added/Modified)
 /* Style for the glassmorphism contact card */
 .glassmorphism--contact {
     max-width: 600px; /* Adjust max-width for the contact form card */
-    background-color: #000; /* ALTERAÇÃO AQUI: background-color para #000 */
+    background-color: #000; /* ALTERAÇÃO AQUI: background-color para #000 */    
+    border: 2px solid rgba(255, 255, 255, 0.18);
     width: 90%; /* Responsive width */
     padding: 3rem; /* Adjusted padding for the form */
     box-sizing: border-box; /* Include padding in width calculation */
@@ -1068,7 +1070,6 @@ Contact Page Specific Styles (Added/Modified)
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
 .contact-form textarea:focus {
-    border-color: #a31f1f; /* Highlight on focus */
     background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque */
 }
 
@@ -1192,8 +1193,8 @@ body {
 
 /* O “quadrado” deve acompanhar o conteúdo; remova a altura fixa */
 .skills-grid-container {
-  height: auto;        /* era 70% */
-  align-items: stretch;/
+  height: auto;       
+  align-items: stretch;
   margin-top: 6rem;    
 }
 
