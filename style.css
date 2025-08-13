@@ -69,21 +69,104 @@ section[class="home"] .page-title{ /* Changed to section[class="home"] to be mor
     box-sizing: border-box;
 }
 
-/* Glassmorphism Card Style */
-.glassmorphism {
-    background: rgba(0, 0, 0, 0.707);
-    backdrop-filter: blur(10px); /* Ajustado para 10px como nos seus cards existentes */
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-    color: white;
-    padding: 2.5rem;
-}
-
 .about-card {
+    position: relative;
+  padding: 2rem;
     max-width: 800px;
     font-family: 'Open Sans', sans-serif;
+    background: rgba(0, 0, 0, 1);
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform 80ms linear, background-color 80ms linear, color 80ms linear, border-color 80ms linear;
+}
+
+.lang-toggle {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  scale: 150%
+}
+
+/* 1) Esconder o checkbox sem removê‑lo do fluxo de cliques */
+.lang-toggle input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* 2) Estilo do “trilho” do toggle */
+.lang-toggle label {
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  background: #feffff67;               /* cor do estado “off” */
+  border-radius: 25px;            /* metade da altura */
+  position: relative;
+  transition: background 0.3s;
+}
+
+/* 3) Estilo do “knob” do toggle */
+.lang-toggle label::after {
+  content: 'ON';
+  content-color: #0d0d0d67;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.3s, width 0.3s;
+}
+
+/* 1) Knob padrão mostra "PT" */
+.lang-toggle label::after {
+  content: 'PT';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: rgba(13,13,13,0.8);
+
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.3s;
+}
+
+/* 2) Quando o checkbox está marcado, além de mover o knob,
+      trocamos o texto pra "EN" */
+.lang-toggle input[type="checkbox"]:checked + label::after {
+  content: 'EN';
+}
+
+
+/* 4) Estado checked — muda a cor do trilho */
+.lang-toggle input[type="checkbox"]:checked + label {
+  background:  #feffff67;            /* cor do estado “on” */
+}
+
+/* 5) Estado checked — move o knob para a direita */
+.lang-toggle input[type="checkbox"]:checked + label::after {
+  left: calc(100% - 2px - 21px);
+}
+
+.lang-toggle input {
+  background-color:#ffffff;
+}
+.lang-toggle label {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: #fff;
 }
 
 .about-item {
@@ -91,6 +174,8 @@ section[class="home"] .page-title{ /* Changed to section[class="home"] to be mor
     align-items: flex-start;
     text-align: left;
     margin-bottom: 2rem;
+    margin-top: 2rem;
+    color: #fff
 }
 
 .about-item:last-child {
@@ -125,7 +210,7 @@ section[class="home"] .page-title{ /* Changed to section[class="home"] to be mor
   position: relative;
   height: 100px;
   margin: 20px;
-  background-color: #fff;
+  background-color: #c5d6d6;
   box-shadow: 0 10px 20px -8px #c5d6d6;
   border-radius: 4px;
 }
@@ -136,7 +221,7 @@ section[class="home"] .page-title{ /* Changed to section[class="home"] to be mor
   position: absolute;
   right: 0;
   bottom: 0;
-  color: #d7e3e3;
+  color: #c5d6d6;
   font-size: 12px;
   line-height: 1;
   padding: 5px;
@@ -186,35 +271,11 @@ section[class="home"] .page-title{ /* Changed to section[class="home"] to be mor
 
 .btn-bg {
   width: 100%;
-  background-color: #ebf7fc;
+  background-color: #c5d6d6;
   transition: 0.3s ease all;
   z-index: 1;
 }
 
-/* Button 1 */
-#button-1 .knob:before {
-  content: "YES";
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 20px;
-  height: 10px;
-  color: #fff;
-  font-size: 10px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1;
-  padding: 9px 4px;
-  background-color: #03a9f4;
-  border-radius: 50%;
-  transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
-}
-
-#button-1 .checkbox:checked + .knob:before {
-  content: "NO";
-  left: 42px;
-  background-color: #f44336;
-}
 
 #button-1 .checkbox:checked ~ .btn-bg {
   background-color: #fcebeb;
@@ -225,7 +286,6 @@ section[class="home"] .page-title{ /* Changed to section[class="home"] to be mor
 #button-1 .btn-bg {
   transition: 0.3s ease all;
 }
-
 
 
 /* ====================================
@@ -595,9 +655,6 @@ Animation keyframes
 Skills Grid Layout
 ==================================== */
 
-/* O container que segura os cards.
-   Usamos flexbox aqui para garantir que o grid dentro dele
-   esteja bem centralizado na página. */
 .skills-grid-container {
     display: flex;
     justify-content: center;
@@ -623,7 +680,7 @@ Skills Grid Layout
 
 /* Estilo para cada card de habilidade individual */
 .skill-card {
-    background: rgba(0, 0, 0, 0.707); /* Mantém o estilo glassmorphism */
+    background: rgba(0, 0, 0, 0.86); /* Mantém o estilo glassmorphism */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -644,7 +701,7 @@ Skills Grid Layout
     /* Para um efeito suave no hover */
 }
 
-/* Efeito de hover opcional para dar um feedback visual */
+
 .skill-card:hover {
     transform: scale(1.05);
     /* Aumenta um pouco o card ao passar o mouse */
@@ -691,7 +748,7 @@ Skills Grid Layout
 }
 
 /* ====================================
-Works Grid Layout (Novas Regras)
+Works Grid Layout
 ==================================== */
 
 /* Ajuste do título da página WORKS */
@@ -721,12 +778,12 @@ Works Grid Layout (Novas Regras)
 }
 
 .work-card {
-    background: rgba(0, 0, 0, 0.707); /* Mantém o estilo glassmorphism */
+    background: rgba(0, 0, 0, 1); /* Mantém o estilo glassmorphism */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
+    border-radius: 0px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1);
     color: white;
     padding: 1.5rem; /* Ajustado padding para o conteúdo do card de projeto */
     display: flex;
@@ -773,10 +830,10 @@ Works Grid Layout (Novas Regras)
 
 .work-card a {
     display: inline-block;
-    background-color: #a31f1f; /* Cor de destaque similar à navegação */
+    background-color: #38544530; /* Cor de destaque similar à navegação */
     color: #ffffff;
     padding: 0.8rem 1.5rem;
-    border-radius: 5px;
+    border-radius: 0px;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
@@ -785,9 +842,6 @@ Works Grid Layout (Novas Regras)
     text-transform: uppercase;
 }
 
-.work-card a:hover {
-    background-color: rgb(168, 40, 59)f1fd52; /* Um tom mais escuro no hover */
-}
 
 
 
@@ -1124,3 +1178,94 @@ Contact Page Specific Styles (Added/Modified)
         height: 24px;
     }
 }
+/* Permite rolagem vertical quando o conteúdo cresce */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* A seção de Skills pode ser maior que a viewport se precisar */
+.home.skills {
+  height: auto;        /* substitui o 100vh herdado de .home */
+  min-height: 100vh;   /* ainda garante no mínimo a altura da tela */
+}
+
+/* O “quadrado” deve acompanhar o conteúdo; remova a altura fixa */
+.skills-grid-container {
+  height: auto;        /* era 70% */
+  align-items: stretch;/
+  margin-top: 6rem;    
+}
+
+/* Grade realmente responsiva (colunas variam conforme a largura) */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* era repeat(3, 1fr) */
+  gap: 2rem;
+  width: 100%;
+}
+/* 1) permitir que a página cresça e role */
+body { overflow-x: hidden; overflow-y: auto; }
+
+/* 2) skills com altura fluida, mantendo no mínimo 100vh */
+.home.skills { height: auto; min-height: 100vh; }
+
+/* 3) container sem altura fixa e com largura responsiva */
+.skills-grid-container {
+  height: auto;                /* antes: 70% */
+  width: min(1120px, 92vw);    /* brutalismo = largura definida e generosa */
+  padding: clamp(16px, 4vw, 48px);
+  align-items: stretch;
+}
+
+/* 4) grid realmente dinâmico (sem travar em 3 colunas) */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+/* 5) brutalizar os cards: sem blur, sem sombra, cantos retos, borda grossa */
+.home.skills .glassmorphism {  /* só na página de skills */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 8px;          /* pode usar 0 se quiser ainda mais duro */
+  box-shadow: none;
+}
+
+/* 6) cards com estética crua */
+.skill-card {
+  background: #000000ff;
+  border: 2px solid #6d6767ff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 24px;
+  transition: transform 80ms linear, background-color 80ms linear, color 80ms linear, border-color 80ms linear;
+}
+
+/* 7) tipografia brutalista */
+.skill-card h4 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+/* 8) usar as mesmas cores do menu como acentos por card (coerência visual) */
+:root {
+  --nav-1:#6b74a4; --nav-2:#a31f1f; --nav-3:#9f577a; --nav-4:#d9964f; --nav-5:#3a746b;
+}
+.skill-card:nth-child(5n+1){ --accent: var(--nav-1); }
+.skill-card:nth-child(5n+2){ --accent: var(--nav-2); }
+.skill-card:nth-child(5n+3){ --accent: var(--nav-3); }
+.skill-card:nth-child(5n+4){ --accent: var(--nav-4); }
+.skill-card:nth-child(5n+5){ --accent: var(--nav-5); }
+
+/* 9) interação “seca” de brutalismo (sem glow): leve shift e inversão de cor */
+.skill-card:hover {
+  transform: translateY(-2px);
+  background: var(--accent, #fff);
+  color: #111;
+  border-color: var(--accent, #fff);
+}
+
