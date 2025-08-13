@@ -33,3 +33,15 @@ $('.open-overlay').click(function() {
     nav_item_5.removeClass('slide-in-nav-item-delay-4').addClass('slide-in-nav-item-delay-4-reverse');
   }
 })
+
+const toggle = document.getElementById('langToggle');
+const textos = document.querySelectorAll('.about-card .text');
+
+toggle.addEventListener('change', () => {
+  const lang = toggle.checked ? 'en' : 'pt';
+
+  textos.forEach(el => {
+    // pega o texto do data-pt ou data-en
+    el.textContent = el.dataset[lang];
+  });
+});
