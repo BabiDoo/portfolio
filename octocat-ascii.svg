@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="380" viewBox="0 0 600 380" role="img" aria-label="Octocat ASCII art">
+  <rect width="600" height="380" rx="8" fill="#0d1117"/>
+  <text x="28" y="28" fill="#f0f6fc" font-family="Consolas, 'Courier New', monospace" font-size="13" xml:space="preserve">
+    <tspan x="28" dy="0">           MMM.           .MMM</tspan>
+    <tspan x="28" dy="16">           MMMMMMMMMMMMMMMMMMM</tspan>
+    <tspan x="28" dy="16">           MMMMMMMMMMMMMMMMMMM      _________________</tspan>
+    <tspan x="28" dy="16">          MMMMMMMMMMMMMMMMMMMMM    |                 |</tspan>
+    <tspan x="28" dy="16">         MMMMMMMMMMMMMMMMMMMMMMM   | Hello!          |</tspan>
+    <tspan x="28" dy="16">        MMMMMMMMMMMMMMMMMMMMMMMM   |_   _____________|</tspan>
+    <tspan x="28" dy="16">        MMMM::- -:::::::- -::MMMM    |/</tspan>
+    <tspan x="28" dy="16">         MM~:~ 00~:::::~ 00~:~MM</tspan>
+    <tspan x="28" dy="16">    .. MMMMM::.00:::+:::.00::MMMMM ..</tspan>
+    <tspan x="28" dy="16">          .MM::::: ._. :::::MM.</tspan>
+    <tspan x="28" dy="16">             MMMM;:::::;MMMM</tspan>
+    <tspan x="28" dy="16">      -MM        MMMMMMM</tspan>
+    <tspan x="28" dy="16">      ^  M+     MMMMMMMMM</tspan>
+    <tspan x="28" dy="16">          MMMMMMM MM MM MM</tspan>
+    <tspan x="28" dy="16">               MM MM MM MM</tspan>
+    <tspan x="28" dy="16">               MM MM MM MM</tspan>
+    <tspan x="28" dy="16">            .~~MM~MM~MM~MM~~.</tspan>
+    <tspan x="28" dy="16">         ~~~~MM:~MM~~~MM~:MM~~~~</tspan>
+    <tspan x="28" dy="16">        ~~~~~~==~==~~~==~==~~~~~~</tspan>
+    <tspan x="28" dy="16">         ~~~~~~==~==~==~==~~~~~~</tspan>
+    <tspan x="28" dy="16">             :~==~==~==~==~~</tspan>
+  </text>
+</svg>
