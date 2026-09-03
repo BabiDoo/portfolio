@@ -1810,6 +1810,12 @@ body.home.works .page-title { color: var(--ink); }
    palette visible there. */
 @media (hover: none) {
   .skill-card:nth-child(n) { background: #fff; }
+  .skill-card.is-touch-active {
+    background: var(--acid);
+    border-color: #000;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, .65);
+    transform: translate(-5px, -5px);
+  }
   .work-card:nth-child(1) { background: var(--card-forest); }
   .work-card:nth-child(2) { background: var(--card-sky); }
   .work-card:nth-child(3) { background: var(--java-purple); }
@@ -1954,7 +1960,8 @@ body.skills-page {
   letter-spacing: .04em;
   font-size: clamp(.66rem, 1.05vw, 1rem);
   line-height: 1.1;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: keep-all;
   position: static;
   left: auto;
 }
@@ -1975,6 +1982,8 @@ body.skills-page {
   }
 
   .home.skills .skills-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(9, minmax(0, 1fr));
     gap: 3px;
   }
 
@@ -1985,7 +1994,7 @@ body.skills-page {
   }
 
   .home.skills .skill-card h4 {
-    font-size: clamp(.43rem, 2.1vw, .65rem);
+    font-size: clamp(.52rem, 2.3vw, .72rem);
     letter-spacing: 0;
   }
 }
@@ -2099,6 +2108,16 @@ section.home:not(.about):not(.skills):not(.contact) .page-title {
   font-size: 3.5rem;
 }
 
+/* Whenever the Home title receives its shaded backdrop, center that complete
+   title-and-subtitle block in the viewport rather than at the upper edge. */
+@media (max-width: 1487px) {
+  section.home:not(.about):not(.skills):not(.contact) .page-title {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .home.about,
 .home.skills,
 .home.contact,
@@ -2140,8 +2159,13 @@ body.home.works .page-title { color: #fff; }
   .page-title { font-size: clamp(1.9rem, 10vw, 2.5rem); }
   .page-title .page-subtitle-text { font-size: clamp(.9rem, 4vw, 1.1rem); }
   section.home:not(.about):not(.skills):not(.contact) .page-title {
-    top: clamp(1.5rem, 4vw, 3.2rem);
-    left: clamp(1rem, 6vw, 5rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+    margin-left: 0;
+    text-align: center;
     font-size: clamp(1.9rem, 10vw, 2.5rem);
   }
 }

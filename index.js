@@ -62,3 +62,37 @@ document.querySelectorAll('.work-card[data-project-url]').forEach(card => {
     }
   });
 });
+
+// On touch screens, mirror the skills-card hover state while a finger glides
+// across the grid. This remains passive, so the page can still scroll normally.
+const skillsGrid = document.querySelector('.home.skills .skills-grid');
+
+if (skillsGrid && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+  let activeSkillCard;
+
+  const setActiveSkillCard = (clientX, clientY) => {
+    const card = document.elementFromPoint(clientX, clientY)?.closest('.skill-card');
+
+    if (card === activeSkillCard) return;
+    activeSkillCard?.classList.remove('is-touch-active');
+    activeSkillCard = card && skillsGrid.contains(card) ? card : undefined;
+    activeSkillCard?.classList.add('is-touch-active');
+  };
+
+  const clearActiveSkillCard = () => {
+    activeSkillCard?.classList.remove('is-touch-active');
+    activeSkillCard = undefined;
+  };
+
+  skillsGrid.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'touch') setActiveSkillCard(event.clientX, event.clientY);
+  }, { passive: true });
+
+  skillsGrid.addEventListener('pointermove', event => {
+    if (event.pointerType === 'touch') setActiveSkillCard(event.clientX, event.clientY);
+  }, { passive: true });
+
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
+    skillsGrid.addEventListener(eventName, clearActiveSkillCard, { passive: true });
+  });
+}
