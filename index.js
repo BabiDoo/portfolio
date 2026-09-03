@@ -10,6 +10,7 @@ $('.open-overlay').click(function() {
     bottom_bar = $('.bar-bottom');
 
   overlay_navigation.toggleClass('overlay-active');
+  $(this).toggleClass('menu-open', overlay_navigation.hasClass('overlay-active'));
   if (overlay_navigation.hasClass('overlay-active')) {
 
     top_bar.removeClass('animate-out-top-bar').addClass('animate-top-bar');
@@ -35,13 +36,29 @@ $('.open-overlay').click(function() {
 })
 
 const toggle = document.getElementById('langToggle');
-const textos = document.querySelectorAll('.about-card .text');
+const textos = document.querySelectorAll('[data-pt][data-en]');
 
-toggle.addEventListener('change', () => {
-  const lang = toggle.checked ? 'en' : 'pt';
+if (toggle) {
+  toggle.addEventListener('change', () => {
+    const lang = toggle.checked ? 'en' : 'pt';
 
-  textos.forEach(el => {
-    // pega o texto do data-pt ou data-en
-    el.textContent = el.dataset[lang];
+    textos.forEach(el => {
+      el.textContent = el.dataset[lang];
+    });
+  });
+}
+
+document.querySelectorAll('.work-card[data-project-url]').forEach(card => {
+  const openProject = () => window.open(card.dataset.projectUrl, '_blank', 'noopener');
+
+  card.addEventListener('click', event => {
+    if (!event.target.closest('a')) openProject();
+  });
+
+  card.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openProject();
+    }
   });
 });

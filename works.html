@@ -9,7 +9,7 @@
 <body class="home works">
 
   <!-- Título no canto superior esquerdo -->
-  <h1 class="page-title">My Projects</h1>
+  <h1 class="page-title">Projects</h1>
 
   <!-- Ícone de menu (hamburguer) -->
   <div class="open-overlay">
@@ -26,33 +26,54 @@
   <!-- Container de todos os cards -->
   <div class="works-grid-container">
     <div class="works-grid">
-      <!-- Card 1 -->
-      <div class="work-card">
-        <h3>PROJECT TITLE 3</h3>
-        <p>A short description of Project 3, explaining its purpose and technologies used.</p>
-        <a href="#">VIEW DETAILS</a>
-      </div>
+      <article class="work-card" data-project-url="https://github.com/BabiDoo/agentic-orquestration" tabindex="0" role="link">
+        <h3 data-pt="Microkernel Agêntico PEV‑C" data-en="Agentic Microkernel PEV‑C">Microkernel Agêntico PEV‑C</h3>
+        <p data-pt="Harness governado para agentes de marketing e CRM. Orquestra o ciclo Plan → Execute → Verify → Commit, com evidências auditáveis, políticas deny-by-default e aprovação humana para ações críticas." data-en="A governed harness for marketing and CRM agents. It orchestrates the Plan → Execute → Verify → Commit cycle with auditable evidence, deny-by-default policies, and human approval for critical actions.">Harness governado para agentes de marketing e CRM. Orquestra o ciclo Plan → Execute → Verify → Commit, com evidências auditáveis, políticas deny-by-default e aprovação humana para ações críticas.</p>
+        <p class="project-stack">TypeScript · Node.js · SQLite · Vitest · Docker</p>
+        <a href="https://github.com/BabiDoo/agentic-orquestration" target="_blank" rel="noopener noreferrer" data-pt="VER PROJETO" data-en="VIEW PROJECT">VER PROJETO</a>
+      </article>
 
-      <!-- Card 2 -->
-      <div class="work-card">
-        <h3>PROJECT TITLE 1</h3>
-        <p>Description for Project 1. This project involved developing a web application with modern frameworks.</p>
-        <a href="#">VIEW DETAILS</a>
-      </div>
+      <article class="work-card">
+        <h3 data-pt="Bloopi — Infraestrutura de Pagamentos" data-en="Bloopi — Payment Infrastructure">Bloopi — Infraestrutura de Pagamentos</h3>
+        <p data-pt="Refatoração de um fluxo crítico de pagamentos em serviços especializados, com processamento assíncrono, rastreabilidade de eventos e maior confiabilidade operacional." data-en="Refactoring of a critical payment flow into specialized services, with asynchronous processing, event traceability, and greater operational reliability.">Refatoração de um fluxo crítico de pagamentos em serviços especializados, com processamento assíncrono, rastreabilidade de eventos e maior confiabilidade operacional.</p>
+        <p class="project-stack" data-pt="Node.js · TypeScript · APIs REST · Webhooks · Redis" data-en="Node.js · TypeScript · REST APIs · Webhooks · Redis">Node.js · TypeScript · APIs REST · Webhooks · Redis</p>
+        <span class="project-status project-status--private" data-pt="Projeto privado" data-en="Private project">Projeto privado</span>
+      </article>
 
-      <!-- Card 3 -->
-      <div class="work-card">
-        <h3>PROJECT TITLE 2</h3>
-        <p>Project 2 focused on creating a responsive design for mobile and desktop users.</p>
-        <a href="#">VIEW DETAILS</a>
-      </div>
+      <article class="work-card">
+        <h3 data-pt="Pedrino — Geolocalização &amp; Assinaturas" data-en="Pedrino — Geolocation &amp; Subscriptions">Pedrino — Geolocalização &amp; Assinaturas</h3>
+        <p data-pt="Backend para busca geolocalizada, assinaturas e mensageria, incluindo ranking ponderado por plano, distância e reputação, com regras transacionais." data-en="Backend for geolocated search, subscriptions, and messaging, including weighted ranking by plan, distance, and reputation, with transactional rules.">Backend para busca geolocalizada, assinaturas e mensageria, incluindo ranking ponderado por plano, distância e reputação, com regras transacionais.</p>
+        <p class="project-stack">Node.js · PostgreSQL · PostGIS · Background Jobs</p>
+        <span class="project-status project-status--private" data-pt="Projeto privado" data-en="Private project">Projeto privado</span>
+      </article>
 
-      <!-- Card 4 -->
-      <div class="work-card">
-        <h3>PROJECT TITLE 4</h3>
-        <p>This project explored data visualization techniques using various libraries.</p>
-        <a href="#">VIEW DETAILS</a>
-      </div>    
+      <article class="work-card" data-project-url="https://github.com/BabiDoo/whatsapp-automation" tabindex="0" role="link">
+        <h3>WhatsApp Automation Engine</h3>
+        <p data-pt="Arquitetura de mensageria orientada a eventos, com filas, workers, abstração de provedores, auditoria e retries com exponential backoff." data-en="Event-driven messaging architecture with queues, workers, provider abstraction, auditing, and retries with exponential backoff.">Arquitetura de mensageria orientada a eventos, com filas, workers, abstração de provedores, auditoria e retries com exponential backoff.</p>
+        <p class="project-stack">NestJS · TypeScript · PostgreSQL · Redis · Webhooks</p>
+        <a href="https://github.com/BabiDoo/whatsapp-automation" target="_blank" rel="noopener noreferrer" data-pt="VER PROJETO" data-en="VIEW PROJECT">VER PROJETO</a>
+      </article>
+
+      <article class="work-card" data-project-url="https://github.com/BabiDoo/brain-lens" tabindex="0" role="link">
+        <h3 data-pt="BrainLens — Copiloto de Pesquisa" data-en="BrainLens — Research Copilot">BrainLens — Copiloto de Pesquisa</h3>
+        <p data-pt="Copiloto multimodal que transforma PDFs acadêmicos em uma experiência navegável e verificável, com extração de evidências, análise de figuras e pipeline RAG/agêntico." data-en="A multimodal copilot that turns academic PDFs into a navigable and verifiable experience, with evidence extraction, figure analysis, and an agentic RAG pipeline.">Copiloto multimodal que transforma PDFs acadêmicos em uma experiência navegável e verificável, com extração de evidências, análise de figuras e pipeline RAG/agêntico.</p>
+        <p class="project-stack">React · TypeScript · Vite · Gemini API · RAG</p>
+        <a href="https://github.com/BabiDoo/brain-lens" target="_blank" rel="noopener noreferrer" data-pt="VER PROJETO" data-en="VIEW PROJECT">VER PROJETO</a>
+      </article>
+
+      <article class="work-card">
+        <h3 data-pt="EPIS — Gestão de Equipamentos" data-en="EPIS — PPE Management">EPIS — Gestão de Equipamentos</h3>
+        <p data-pt="Sistema corporativo para estoque, movimentações, entregas, devoluções, alertas, auditoria e conformidade de equipamentos de proteção individual." data-en="Corporate system for inventory, movements, handovers, returns, alerts, auditing, and personal protective equipment compliance.">Sistema corporativo para estoque, movimentações, entregas, devoluções, alertas, auditoria e conformidade de equipamentos de proteção individual.</p>
+        <p class="project-stack">.NET 8 · ASP.NET Core · PostgreSQL · EF Core · Docker · JWT</p>
+        <span class="project-status project-status--private" data-pt="Projeto privado" data-en="Private project">Projeto privado</span>
+      </article>
+    </div>
+  </div>
+
+  <div class="works-language-toggle">
+    <div class="lang-toggle">
+      <input type="checkbox" id="langToggle" aria-label="Alternar idioma dos projetos" />
+      <label for="langToggle"></label>
     </div>
   </div>
 
@@ -63,7 +84,7 @@
         <li><a href="index.html" data-content="The beginning">Home</a></li>
         <li><a href="about.html" data-content="Curious?">About</a></li>
         <li><a href="skills.html" data-content="I got game">Skills</a></li>
-        <li><a href="works.html" data-content="Only the finest">Works</a></li>
+        <li><a href="works.html" data-content="Only the finest">Projects</a></li>
         <li><a href="contact.html" data-content="Don't hesitate">Contact</a></li>
       </ul>
     </nav>
