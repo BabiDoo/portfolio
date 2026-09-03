@@ -2236,15 +2236,18 @@ body.home.works .work-card h3 {
 }
 
 .work-card[data-project-url]::after {
-  content: "↗";
+  /* Draw the arrow in CSS so phones cannot substitute it with an emoji glyph. */
+  content: "";
   position: absolute;
   right: 1rem;
   bottom: .8rem;
   color: var(--ink);
-  font-family: "Work Sans", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1;
+  width: 1rem;
+  height: 1rem;
+  box-sizing: border-box;
+  border-top: 3px solid currentColor;
+  border-right: 3px solid currentColor;
+  background: linear-gradient(45deg, transparent 44%, currentColor 45% 55%, transparent 56%);
   opacity: 0;
   transform: translate(-.25rem, .25rem);
   transition: opacity .15s ease, transform .15s ease;
@@ -2259,6 +2262,36 @@ body.home.works .work-card h3 {
 .work-card[data-project-url]:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: -6px;
+}
+
+/* On mobile, use a fixed viewport layer: background-attachment: fixed is
+   unreliable on scrolling elements in iOS Safari and similar browsers. */
+@media (max-width: 768px) {
+  html { background: #111; }
+
+  body {
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+    background: transparent !important;
+  }
+
+  body::before {
+    content: "";
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: #111 url('https://images.unsplash.com/photo-1446771326090-d910bfaf00f6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=9216e1a8598a8530ce329b41a8f3725d') center center / cover no-repeat;
+  }
+
+  /* These elements previously carried their own moving image. */
+  section.home:not(.about):not(.skills):not(.contact),
+  body.home.works,
+  body.home.contact {
+    background: transparent !important;
+  }
 }
 
 @media (hover: none) {
