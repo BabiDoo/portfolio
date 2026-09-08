@@ -2341,9 +2341,8 @@ body.home.works .work-card h3 {
 
 /* ==========================================================================
    SINGLE-VIEWPORT LAYOUT
-   Every page is locked to exactly one screen height on every device.
-   No page scrolls; all content of every page fits in a single view, and the
-   fixed menu button is therefore always visible without scrolling.
+   Pages use one screen height; Projects alone allows vertical scrolling.
+   The fixed menu button stays visible while scrolling.
    ========================================================================== */
 
 html,
@@ -2430,15 +2429,17 @@ body.home.works {
   margin-top: clamp(.5rem, 2vh, 1.25rem);
 }
 
-/* ---- Projects: a grid that always fills exactly one viewport ---- */
+/* ---- Projects: scroll vertically and let cards grow with their content ---- */
 body.home.works {
+  overflow-x: hidden;
+  overflow-y: auto;
   justify-content: flex-start;
   padding: clamp(5rem, 13vh, 7.5rem) clamp(.75rem, 4vw, 3rem) clamp(.75rem, 3vh, 2rem);
 }
 
 body.home.works .works-grid-container {
   display: flex;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-height: 0;
   height: auto;
   padding: 0;
@@ -2449,14 +2450,16 @@ body.home.works .works-grid {
   flex: 1 1 auto;
   min-height: 0;
   width: 100%;
+  height: auto;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: minmax(0, 1fr);
+  grid-template-rows: none;
+  grid-auto-rows: auto;
   gap: 3px;
 }
 
 body.home.works .work-card {
-  min-height: 0;
-  overflow: hidden;
+  min-height: 300px;
+  overflow: visible;
   padding: clamp(.6rem, 1.6vh, 1.5rem);
 }
 
@@ -2469,7 +2472,7 @@ body.home.works .work-card p {
   font-size: clamp(.62rem, 1.6vw, .9rem);
   line-height: 1.35;
   margin: 0 0 .4rem;
-  overflow: hidden;
+  overflow: visible;
 }
 
 body.home.works .work-card .project-stack {
