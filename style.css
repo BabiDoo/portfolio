@@ -2339,3 +2339,153 @@ body.home.works .work-card h3 {
   }
 }
 
+/* ==========================================================================
+   SINGLE-VIEWPORT LAYOUT
+   Every page is locked to exactly one screen height on every device.
+   No page scrolls; all content of every page fits in a single view, and the
+   fixed menu button is therefore always visible without scrolling.
+   ========================================================================== */
+
+html,
+body {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* The page shell (a <section> on home/about/skills, the <body> itself on
+   contact/works) is exactly one viewport tall and clips any excess. */
+section.home,
+body.home.contact,
+body.home.works {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Keep the hamburger pinned to the top-right of the viewport at all times. */
+.open-overlay {
+  position: fixed;
+  top: clamp(1rem, 3.5vw, 3.2rem);
+  right: clamp(1rem, 5vw, 5rem);
+  z-index: 300;
+}
+
+/* ---- About: shrink chrome and text so the card always fits one screen ---- */
+.home.about {
+  justify-content: center;
+  padding-top: clamp(4.5rem, 12vh, 7rem);
+  padding-bottom: clamp(1rem, 4vh, 2.5rem);
+}
+
+.home.about .about-card {
+  max-height: calc(100dvh - clamp(6rem, 16vh, 9.5rem));
+  overflow: hidden;
+  padding: clamp(1rem, 3.5vh, 2rem) clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.home.about .about-item {
+  margin-block: clamp(.4rem, 1.8vh, 1.1rem);
+  padding-bottom: clamp(.4rem, 1.8vh, 1rem);
+}
+
+.home.about .about-item p {
+  font-size: clamp(.8rem, .55rem + 1.1vw, 1.05rem);
+  line-height: 1.5;
+}
+
+/* ---- Contact: compress the form so the whole card fits one screen ---- */
+.home.contact {
+  justify-content: center;
+  padding-top: clamp(4.5rem, 12vh, 7rem);
+  padding-bottom: clamp(1rem, 4vh, 2.5rem);
+}
+
+.glassmorphism--contact {
+  max-height: calc(100dvh - clamp(6rem, 16vh, 9.5rem));
+  overflow: hidden;
+  padding: clamp(1.1rem, 3.5vh, 2.5rem) clamp(1.25rem, 5vw, 3rem);
+}
+
+.contact-form {
+  gap: clamp(.6rem, 2.2vh, 1.4rem);
+  margin-bottom: clamp(.8rem, 3vh, 2rem);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  padding: clamp(.55rem, 1.6vh, 1rem) 1.1rem;
+}
+
+.contact-form textarea {
+  min-height: clamp(68px, 14vh, 120px);
+}
+
+.social-links {
+  margin-top: clamp(.5rem, 2vh, 1.25rem);
+}
+
+/* ---- Projects: a grid that always fills exactly one viewport ---- */
+body.home.works {
+  justify-content: flex-start;
+  padding: clamp(5rem, 13vh, 7.5rem) clamp(.75rem, 4vw, 3rem) clamp(.75rem, 3vh, 2rem);
+}
+
+body.home.works .works-grid-container {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  padding: 0;
+}
+
+body.home.works .works-grid {
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 3px;
+}
+
+body.home.works .work-card {
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(.6rem, 1.6vh, 1.5rem);
+}
+
+body.home.works .work-card h3 {
+  font-size: clamp(.72rem, 2.2vw, 1.15rem);
+  margin: 0 0 .35rem;
+}
+
+body.home.works .work-card p {
+  font-size: clamp(.62rem, 1.6vw, .9rem);
+  line-height: 1.35;
+  margin: 0 0 .4rem;
+  overflow: hidden;
+}
+
+body.home.works .work-card .project-stack {
+  font-size: clamp(.56rem, 1.4vw, .78rem);
+  margin-top: auto;
+}
+
+body.home.works .work-card a,
+body.home.works .project-status {
+  padding: .35rem .6rem;
+  font-size: clamp(.56rem, 1.4vw, .8rem);
+}
+
+@media (min-width: 700px) {
+  body.home.works .works-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
